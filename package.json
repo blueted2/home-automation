@@ -1,0 +1,35 @@
+{
+  "name": "home-automation-v3",
+  "version": "1.0.0",
+  "description": "My attempt at a home automation system built from scratch.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "cd react-app && yarn start",
+    "server": "nodemon app.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "keywords": [
+    "Rest",
+    "api",
+    "socket.io",
+    "ITEAD",
+    "arduino"
+  ],
+  "author": "blueted2",
+  "license": "ISC",
+  "dependencies": {
+    "create-react-app": "^3.1.1",
+    "express": "^4.17.1",
+    "http": "0.0.0",
+    "joi": "^14.3.1",
+    "jshint": "^2.10.2",
+    "lodash.merge": "^4.6.2",
+    "morgan": "^1.9.1",
+    "node-persist": "^3.0.5",
+    "nodemon": "^1.19.1",
+    "pm2": "^3.5.1",
+    "socket.io": "^2.2.0",
+    "yarn": "^1.17.3"
+  }
+}
