@@ -1,10 +1,14 @@
 addNamespaceListener = device => {
+  const id = device.deviceId;
+  const path = "/" + id;
   const ioHandler = require(".");
   io = ioHandler.io;
-  if (!io.nsps[device.deviceId]) {
-    console.log(`Adding new namespace: ${device.deviceId}`);
-    io.of("/" + device.deviceId);
+  if (io.nsps[id]) {
+    return;
   }
+
+  console.log(`Adding new namespace: ${path}`);
+  io.of(path);
 };
 
 module.exports = addNamespaceListener;
