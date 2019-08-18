@@ -1,6 +1,5 @@
 const storage = require("../storage");
 
-var namespaces = {switch_3: "test"};
 
 function startSocketServer(server) {
   io = require("socket.io")(server);

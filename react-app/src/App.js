@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Switch from "./components/swich";
+import Container from "./containers/devicesContainer";
 
 class App extends Component {
   state = {};
   render() {
-    return <Switch deviceId="light_1" />;
+    return <Container devices={[{ name: "Light 1" }]} />;
   }
 }
 
