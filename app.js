@@ -20,4 +20,4 @@ app.get("", (req, res) => {
 });
 
 ioHandler.startSocketServer(server);
-ioHandler.addNamepaceListener({ deviceId: "switch_3" });
+ioHandler.addNamepaceListener({ deviceId: "light_1" });

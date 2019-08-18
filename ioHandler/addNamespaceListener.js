@@ -1,3 +1,5 @@
+const storage = require("../storage");
+
 addNamespaceListener = device => {
   const id = device.deviceId;
   const path = "/" + id;
@@ -9,7 +11,16 @@ addNamespaceListener = device => {
   }
 
   new_nsp.on("connection", socket => {
-    console.log(socket.id);
+    storage.getDevices().then(devices => {
+      device = devices.find(c => {
+        return c.deviceId === id;
+      });
+
+      if (device) {
+        socket.emit(device);
+        console.log(`Sent device: ${device.config.name}`);
+      }
+    });
   });
 };
 
