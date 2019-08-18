@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import io from "socket.io-client";
 
-var socket = io.connect("http://localhost:5000/light_1");
-
 class Switch extends Component {
-  state = {};
+  state = { config: { name: "Test" } };
   render() {
-    console.log(this.props);
-    return <h1>Test</h1>;
+    return <h1>{this.state.config.name}</h1>;
+  }
+  componentDidMount() {
+    var socket = io.connect("http://localhost:5000/light_1");
+    socket.on("update", body => {
+      this.setState(body);
+    });
   }
 }
 

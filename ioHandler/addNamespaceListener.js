@@ -17,7 +17,7 @@ addNamespaceListener = device => {
       });
 
       if (device) {
-        socket.emit(device);
+        socket.emit("update", device);
         console.log(`Sent device: ${device.config.name}`);
       }
     });
