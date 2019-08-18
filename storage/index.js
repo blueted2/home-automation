@@ -1,8 +1,6 @@
 const storage = require("node-persist");
 
-(async () => {
-  storage.init();
-})();
+
 
 module.exports = {
   addDevice: require("./addDevice"),

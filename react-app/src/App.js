@@ -4,7 +4,7 @@ import Switch from "./components/swich";
 class App extends Component {
   state = {};
   render() {
-    return <Switch />;
+    return <Switch deviceId="light_1" />;
   }
 }
 
