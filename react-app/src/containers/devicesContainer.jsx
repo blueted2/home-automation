@@ -4,30 +4,13 @@ import Switch from "../components/switch_1";
 class devicesContainer extends Component {
   render() {
     var { devices } = this.props;
+
+    const switches = devices.map(device => {
+      return <Switch device={device} key={device.deviceId}/>;
+    });
     return (
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "auto auto auto auto",
-          margin: "20px"
-        }}
-      >
-        <Switch device={devices[0]} />
-        <Switch device={devices[0]} />
-        <Switch device={devices[0]} />
-        <Switch device={devices[0]} />
-        <Switch device={devices[0]} />
-        <Switch device={devices[0]} />
-        <Switch device={devices[0]} />
-        <Switch device={devices[0]} />
-        <Switch device={devices[0]} />
-        <Switch device={devices[0]} />
-        <Switch device={devices[0]} />
-        <Switch device={devices[0]} />
-        <Switch device={devices[0]} />
-        <Switch device={devices[0]} />
-        <Switch device={devices[0]} />
-        <Switch device={devices[0]} />
+      <div className="devices-container">
+        {switches}
       </div>
     );
   }
