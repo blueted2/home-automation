@@ -1,1 +1,1 @@
-{"key":"devices","value":[{"deviceId":"light_1","name":"Light 1","status":"on"},{"deviceId":"light_2","name":"Light 2","status":"off"}]}
+{"key":"devices","value":[{"deviceId":"light_1","name":"Light 1","status":"off"},{"deviceId":"light_2","name":"Light 2","status":"off"},{"deviceId":"light_3","name":"Light 3","status":"off"}]}

@@ -6,13 +6,16 @@ class devicesContainer extends Component {
     var { devices } = this.props;
 
     const switches = devices.map(device => {
-      return <Switch device={device} key={device.deviceId}/>;
+      return (
+        <Switch
+          device={device}
+          key={device.deviceId}
+          onStatusChange={this.props.onStatusChange}
+        />
+      );
     });
-    return (
-      <div className="devices-container">
-        {switches}
-      </div>
-    );
+
+    return <div className="devices-container">{switches}</div>;
   }
 }
 

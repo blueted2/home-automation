@@ -1,16 +1,23 @@
 .full-button {
-  width: 100%;
-  height: 150px;
-  font-size: 40px;
-  margin:0px;
+  height: 100%;
+  margin: 0px;
 }
 
 .devices-container {
-  display: grid;
-  grid-template-columns: auto auto auto;
+  display: inline;
+}
+
+.device-name{
+  text-align:center;
 }
 
 .device-container {
-  margin: 20px;
+  display:flex;
+  flex-flow: column;
+  margin: 30px;
   padding: 0px;
+  height: 100px;
+  width: 300px;
+  float: left;
+  background: #ddd;
 }
