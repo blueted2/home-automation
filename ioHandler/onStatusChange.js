@@ -1,12 +1,10 @@
 const storage = require("../storage");
 const emitStatusChange = require("./emitStatusChange");
 
-statusChangeListener = socket => {
-  console.log("Listening to status changes");
+onStatusChange = socket => {
   socket.on("statusChange", device => {
     storage.updateDevice(device.deviceId, { status: device.status });
-    
   });
 };
 
-module.exports = statusChangeListener;
+module.exports = onStatusChange;

@@ -1,0 +1,14 @@
+Server-side:
+  General:
+    connection: When a new device connects
+
+  Switch:
+    swtich-status-change: When the device status is altered
+
+Client-side:
+  General:
+    connection: When device connects to Server
+    initialization: Inital state of all devices
+
+  Switch:
+    switch-status-change: Device status has changed
