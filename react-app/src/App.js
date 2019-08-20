@@ -8,9 +8,14 @@ class App extends Component {
     devices: []
   };
 
-  handleStatusChange = (deviceId, new_status) => {
-    socket.emit("statusChange", { deviceId: deviceId, status: new_status });
-    console.log("Device " + deviceId + " has been changed to " + new_status);
+  handleStatusChange = device => {
+    socket.emit("statusChange", {
+      deviceId: device.deviceId,
+      status: device.status
+    });
+    console.log(
+      "Device " + device.deviceId + " has been changed to " + device.status
+    );
   };
 
   render() {
@@ -27,10 +32,22 @@ class App extends Component {
       console.log("Got devices");
       this.setState({ devices: devices });
     });
-    socket.on("statusChange", new_device => {
+    socket.on("statusChange", device => {
       var devices = this.state.devices;
-      var index = devices.findIndex(d => d.deviceId === new_device.deviceId);
-      devices[index].status = new_device.status;
+      var index = devices.findIndex(d => d.deviceId === device.deviceId);
+      devices[index].status = device.status;
+      this.setState({ devices: devices });
+    });
+    socket.on("controllerConnection", device => {
+      var devices = this.state.devices;
+      var index = devices.findIndex(d => d.deviceId === device.deviceId);
+      devices[index].connected = device.connected;
+      this.setState({ devices: devices });
+    });
+    socket.on("controllerDisconnect", device => {
+      var devices = this.state.devices;
+      var index = devices.findIndex(d => d.deviceId === device.deviceId);
+      devices[index].connected = device.connected;
       this.setState({ devices: devices });
     });
   }
