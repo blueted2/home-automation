@@ -4,7 +4,8 @@ const storage = require("../../../storage");
 
 // Handle incoming PUT request to /api/devices
 router.put("/", (req, res, next) => {
-  handlePut(req, res);
+  deviceId = req.body.deviceId;
+  handlePut(deviceId, req, res);
 });
 
 router.put("/:deviceId", (req, res, next) => {
@@ -14,11 +15,11 @@ router.put("/:deviceId", (req, res, next) => {
       return;
     }
   }
-  handlePut(req, res);
+  deviceId = req.params.deviceId;
+  handlePut(deviceId, req, res);
 });
 
-handlePut = (req, res) => {
-  const deviceId = req.body.deviceId;
+handlePut = (deviceId, req, res) => {
   var newDevice = req.body;
 
   storage
