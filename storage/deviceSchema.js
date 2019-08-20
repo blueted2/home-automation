@@ -1,4 +1,5 @@
 const Joi = require("joi");
+const deviceTypes = ["button", "switch"];
 
 const deviceSchema = Joi.object()
   .keys({
@@ -11,7 +12,8 @@ const deviceSchema = Joi.object()
       .min(3)
       .max(20)
       .required(),
-    status: Joi.required()
+    status: Joi.required(),
+    type: Joi.valid(deviceTypes).required()
   })
   .unknown(true);
 
