@@ -11,6 +11,11 @@
 .full-button.active {
   background: rgb(0, 0, 255);
 }
+.full-button.disabled {
+  opacity: 0.2;
+  background: rgb(100, 100, 150);
+  cursor: not-allowed;
+}
 
 .devices-container {
   display: inline;

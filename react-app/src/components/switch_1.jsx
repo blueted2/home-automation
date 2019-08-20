@@ -5,6 +5,16 @@ class Switch_1 extends Component {
     const { device } = this.props;
     const buttonText =
       device.status.charAt(0).toUpperCase() + device.status.slice(1);
+
+    var buttonClass = "full-button ";
+    if (!device.connected) {
+      buttonClass += "disabled ";
+    } else {
+      if (device.status === "on") {
+        buttonClass += "active ";
+      }
+    }
+
     return (
       <div className="device-container">
         <div className="device-name">
@@ -12,13 +22,16 @@ class Switch_1 extends Component {
         </div>
 
         <button
-          onClick={() =>
-            this.props.onStatusChange(
-              device.deviceId,
-              device.status === "on" ? "off" : "on"
-            )
-          }
-          className={"full-button " + (device.status ==="on" ? "active": "")}
+          onClick={() => {
+            if (device.connected) {
+              this.props.onStatusChange({
+                deviceId: device.deviceId,
+                status: device.status === "on" ? "off" : "on"
+              }
+              );
+            }
+          }}
+          className={buttonClass}
         >
           {buttonText}
         </button>
