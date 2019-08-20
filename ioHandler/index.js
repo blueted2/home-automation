@@ -1,7 +1,7 @@
 function startSocketServer(server) {
   require("../storage").setAllASDisconnected();
   console.log("Starting socket server");
-  io = require("socket.io")(server, { pingInterval: 10000, pingTimeout: 5000 });
+  io = require("socket.io")(server, { pingInterval: 6000, pingTimeout: 5000 });
   module.exports.io = io;
   require("./onConnection")(io);
   require("./onControllerConnection")(io);
