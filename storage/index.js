@@ -1,7 +1,5 @@
 const storage = require("node-persist");
 
-
-
 module.exports = {
   addDevice: require("./addDevice"),
   deviceSchema: require("./deviceSchema"),
@@ -10,5 +8,7 @@ module.exports = {
   removeDevice: require("./removeDevice"),
   validateDevice: require("./validateDevice"),
   clearDevices: require("./clearDevices"),
-  updateDevice: require("./updateDevice")
+  updateDevice: require("./updateDevice"),
+  setAllASDisconnected: require("./setAllASDisconnected")
 };
+

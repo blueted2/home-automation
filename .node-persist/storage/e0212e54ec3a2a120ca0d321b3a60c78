@@ -1,1 +1,1 @@
-{"key":"devices","value":[{"deviceId":"light_1","name":"Light 1","status":"off"},{"deviceId":"light_2","name":"Light 2","status":"off"},{"deviceId":"light_3","name":"Light 3","status":"off"}]}
+{"key":"devices","value":[{"deviceId":"light_1","name":"Light 1","status":"off","connected":true},{"deviceId":"light_2","name":"Light 2","status":"off","connected":false},{"deviceId":"light_3","name":"Light 3","status":"off","connected":false},{"deviceId":"relay_1","name":"Relay 1","status":"off"},{"deviceId":"relay_2","name":"Relay 2","status":"off"}]}

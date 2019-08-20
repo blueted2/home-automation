@@ -1,11 +1,10 @@
 function startSocketServer(server) {
-  io = require("socket.io")(server);
+  require("../storage").setAllASDisconnected();
+  console.log("Starting socket server");
+  io = require("socket.io")(server, { pingInterval: 10000, pingTimeout: 5000 });
   module.exports.io = io;
   require("./onConnection")(io);
-
-  io.on("statusChange", (device) => {
-    console.log("a");
-  })
+  require("./onControllerConnection")(io);
 }
 
 module.exports = {
