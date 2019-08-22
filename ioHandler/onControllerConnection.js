@@ -8,7 +8,7 @@ onControllerConnection = socket => {
       connected: true
     });
     
-    storage.updateDevice(deviceId, { connected: true });
+    storage.updateDevice(deviceId, { connected: true }).catch(error=>{console.log(error);})
     socket.on("disconnect", () => {
       console.log(`The controller for device of id ${deviceId} has disconnected.`);
       socket.broadcast.emit("controllerDisconnect", {

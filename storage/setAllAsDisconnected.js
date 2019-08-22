@@ -3,14 +3,17 @@ const getDevices = require("./getDevices");
 const storage = require("node-persist");
 
 setAllAsDisconnected = () => {
-  getDevices().then(devices => {
+  getDevices()
+    .then(devices => {
+      for (var i = 0; i < devices.length; i++) {
+        devices[i].connected = false;
+      }
 
-    for (var i = 0; i < devices.length; i++) {
-      devices[i].connected = false;
-    }
-    
-    storage.setItem("devices", devices);
-  });
+      storage.setItem("devices", devices);
+    })
+    .catch(error => {
+      reject(error);
+    });
 };
 
 module.exports = setAllAsDisconnected;

@@ -16,21 +16,23 @@ updateDevice = (deviceId, newDevice) => {
           return;
         }
 
-        getDevices().then(devices => {
-          devices[
-            devices.findIndex(d => d.deviceId === deviceId)
-          ] = updatedDevice;
-          storage.setItem("devices", devices);
+        getDevices()
+          .then(devices => {
+            devices[devices.findIndex(d => d.deviceId === deviceId)] = updatedDevice;
+            storage.setItem("devices", devices);
 
-          if (newDevice.status) {
-            ioHandler.emitStatusChange({
-              deviceId: deviceId,
-              status: newDevice.status
-            });
-          }
+            if (newDevice.status) {
+              ioHandler.emitStatusChange({
+                deviceId: deviceId,
+                status: newDevice.status
+              });
+            }
 
-          resolve(updatedDevice);
-        });
+            resolve(updatedDevice);
+          })
+          .catch(error => {
+            reject(error);
+          });
       })
       .catch(error => {
         reject(error);

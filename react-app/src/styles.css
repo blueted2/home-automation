@@ -1,0 +1,63 @@
+.device-header {
+  position: relative;
+  height: 50px;
+}
+.full-button {
+  height: 100%;
+  border-radius: 10px;
+  border-color: rgb(0, 0, 100);
+  background: rgb(121, 121, 248);
+  color: white;
+  padding: 0;
+}
+.full-button.active {
+  background: blue
+}
+.full-button.disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+.button-text {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 30px;
+  margin: auto;
+}
+.devices-container {
+  display: inline;
+}
+.device-header {
+  position: relative;
+  height: 50px;
+}
+.device-name {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  font-size: 25px;
+  text-align: center;
+}
+.device-container {
+  border-radius: 10px;
+  display: flex;
+  flex-flow: column;
+  margin: 30px;
+  padding: 0px;
+  height: 150px;
+  width: 300px;
+  float: left;
+  background: #eee;
+}
+
+.options-button {
+  position: absolute;
+  bottom: 10%;
+  right: 2%;
+  height: 80%;
+}
