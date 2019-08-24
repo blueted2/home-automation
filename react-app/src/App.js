@@ -9,21 +9,19 @@ class App extends Component {
     devices: []
   };
 
-  handleStatusChange = device => {
-    socket.emit("statusChange", {
+  handleEvent = (event, device) => {
+    console.log(event, device);
+    socket.emit(event, {
       deviceId: device.deviceId,
       status: device.status
     });
-    console.log(
-      "Device " + device.deviceId + " has been changed to " + device.status
-    );
   };
 
   render() {
     return (
       <Container
         devices={this.state.devices}
-        onStatusChange={this.handleStatusChange}
+        onEvent={this.handleEvent}
       />
     );
   }
@@ -39,6 +37,7 @@ class App extends Component {
       devices[index].status = device.status;
       this.setState({ devices: devices });
     });
+
     socket.on("controllerConnection", device => {
       var devices = this.state.devices;
       var index = devices.findIndex(d => d.deviceId === device.deviceId);

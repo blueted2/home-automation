@@ -1,0 +1,1 @@
+module.exports = ["switchOn", "switchOff", "buttonPress", "buttonRelease"]

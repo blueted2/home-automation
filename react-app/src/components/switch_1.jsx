@@ -33,10 +33,15 @@ class Switch_1 extends Component {
         <button
           onClick={() => {
             if (device.connected) {
-              this.props.onStatusChange({
-                deviceId: device.deviceId,
-                status: device.status === "on" ? "off" : "on"
-              });
+              if (device.status === "on") {
+                this.props.onEvent("switchOff", {
+                  deviceId: device.deviceId
+                });
+              } else {
+                this.props.onEvent("switchOff", {
+                  deviceId: device.deviceId
+                });
+              }
             }
           }}
           className={buttonClass}>

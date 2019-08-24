@@ -7,6 +7,8 @@ onControllerConnection = socket => {
       deviceId: deviceId,
       connected: true
     });
+
+    require("./onStatusChange")(socket); // Only controllers can edit the stored status of a device
     
     storage.updateDevice(deviceId, { connected: true }).catch(error=>{console.log(error);})
     socket.on("disconnect", () => {
