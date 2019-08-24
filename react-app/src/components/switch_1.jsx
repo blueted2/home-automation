@@ -38,7 +38,7 @@ class Switch_1 extends Component {
                   deviceId: device.deviceId
                 });
               } else {
-                this.props.onEvent("switchOff", {
+                this.props.onEvent("switchOn", {
                   deviceId: device.deviceId
                 });
               }

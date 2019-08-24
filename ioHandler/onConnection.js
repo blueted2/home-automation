@@ -3,6 +3,7 @@ const events = require("./validEvents");
 
 onConnection = io => {
   io.on("connection", socket => {
+    console.log(socket.id);
     storage
       .getDevices()
       .then(devices => {
@@ -14,10 +15,10 @@ onConnection = io => {
       });
 
     events.forEach(event => {
-     socket.on(event, body => {
-       console.log(`Got event ${event} with body ${JSON.stringify(body)}`);
-       io.emit(event, body);
-     });
+      socket.on(event, body => {
+        //console.log(`Got event ${event} with body ${JSON.stringify(body)}`);
+        io.emit(event, body);
+      });
     });
   });
 };
