@@ -6,7 +6,7 @@ class devicesContainer extends Component {
     var { devices } = this.props;
 
     const switches = devices.map(device => {
-      return <Switch device={device} key={device.deviceId} onEvent={this.props.onEvent} />;
+      return <Switch deviceTypes={this.props.deviceTypes} device={device} key={device.deviceId} onEvent={this.props.onEvent} />;
     });
 
     return <div className="devices-container">{switches}</div>;

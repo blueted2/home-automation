@@ -1,5 +1,5 @@
 const Joi = require("joi");
-const deviceTypes = ["button", "switch"];
+const deviceTypes = require("./deviceTypes");
 
 const deviceSchema = Joi.object()
   .keys({

@@ -3,7 +3,7 @@
   height: 50px;
 }
 .full-button {
-  height: 100%;
+  height: 110px;
   border-radius: 10px;
   border-color: rgb(0, 0, 100);
   background: rgb(121, 121, 248);
@@ -11,7 +11,7 @@
   padding: 0;
 }
 .full-button.active {
-  background: blue
+  background: blue;
 }
 .full-button.disabled {
   opacity: 0.2;
@@ -29,7 +29,7 @@
 }
 .device-header {
   position: relative;
-  height: 50px;
+  height: 40px;
 }
 .device-name {
   position: absolute;
@@ -52,12 +52,38 @@
   height: 150px;
   width: 300px;
   float: left;
-  background: #eee;
+  background: #ddd;
 }
-
 .options-button {
   position: absolute;
-  bottom: 10%;
-  right: 2%;
-  height: 80%;
+  bottom: 0px;
+  right: 10px;
+  height: 41px;
+  width: 40px;
+  padding: 3px;
+  padding-bottom: 13px;
+  top: 0;
+  z-index: 2;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0)
+}
+.options-button.active {
+  background: #ccc;
+  border-style: solid solid hidden solid;
+  border-color: #000;
+}
+.options-dropDown {
+  display: none;
+  background: #ccc;
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px;
+  position: absolute;
+  right: 0px;
+  top: 40px;
+  z-index: 1;
+}
+.options-dropDown.visible{
+  display: inline;
 }

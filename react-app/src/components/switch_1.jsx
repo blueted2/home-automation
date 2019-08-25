@@ -1,15 +1,25 @@
 import React, { Component } from "react";
-import OptionsButton from "./options/options_button";
+import OptionsDropDown from "./options/options_dropDown";
 
 class Switch_1 extends Component {
-  state = {
-    showOptions: false
+  onClick = () => {
+    const { device } = this.props;
+    if (device.connected) {
+      if (device.status === "on") {
+        this.props.onEvent("switchOff", {
+          deviceId: device.deviceId
+        });
+      } else {
+        this.props.onEvent("switchOn", {
+          deviceId: device.deviceId
+        });
+      }
+    }
   };
 
   render() {
     const { device } = this.props;
     const buttonText = device.status.charAt(0).toUpperCase() + device.status.slice(1);
-
     var buttonClass = "full-button ";
     if (!device.connected) {
       buttonClass += "disabled ";
@@ -23,28 +33,10 @@ class Switch_1 extends Component {
       <div className="device-container">
         <div className="device-header">
           <div className="device-name">{device.name}</div>
-          <OptionsButton
-            onClick={() => {
-              this.setState({ showOptions: !this.state.showOptions });
-            }}
-          />
+          <OptionsDropDown deviceTypes={this.props.deviceTypes} device={device} />
         </div>
 
-        <button
-          onClick={() => {
-            if (device.connected) {
-              if (device.status === "on") {
-                this.props.onEvent("switchOff", {
-                  deviceId: device.deviceId
-                });
-              } else {
-                this.props.onEvent("switchOn", {
-                  deviceId: device.deviceId
-                });
-              }
-            }
-          }}
-          className={buttonClass}>
+        <button onClick={this.onClick} className={buttonClass}>
           <div className="button-text">{buttonText}</div>
         </button>
       </div>
