@@ -11,20 +11,18 @@ class App extends Component {
   };
 
   handleEvent = (event, device) => {
-    socket.emit(event, {
-      deviceId: device.deviceId,
-      status: device.status
-    });
+    if (event === "switchOn" || event === "switchOff") {
+      socket.emit(event, {
+        deviceId: device.deviceId,
+        status: device.status
+      });
+    } else if (event === "configChange") {
+      socket.emit(event, device);
+    }
   };
 
   render() {
-    return (
-      <Container
-        devices={this.state.devices}
-        deviceTypes={this.state.deviceTypes}
-        onEvent={this.handleEvent}
-      />
-    );
+    return <Container devices={this.state.devices} deviceTypes={this.state.deviceTypes} onEvent={this.handleEvent} />;
   }
 
   componentDidMount() {
@@ -51,6 +49,16 @@ class App extends Component {
     });
     socket.on("deviceTypes", types => {
       this.setState({ deviceTypes: types });
+    });
+    socket.on("configChange", device => {
+      var devices = this.state.devices;
+      var index = devices.findIndex(d => (d.deviceId === device.deviceId));
+      Object.keys(device).forEach(key => {
+        if (key !== "deviceId") {
+          devices[index][key] = device[key];
+        }
+      });
+      this.setState({ devices: devices });
     });
   }
 }

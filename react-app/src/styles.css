@@ -66,7 +66,7 @@
   z-index: 2;
   border-width: 1px;
   border-style: solid;
-  border-color: rgba(0, 0, 0, 0)
+  border-color: rgba(0, 0, 0, 0);
 }
 .options-button.active {
   background: #ccc;
@@ -74,6 +74,7 @@
   border-color: #000;
 }
 .options-dropDown {
+  width: 100%;
   display: none;
   background: #ccc;
   border-style: solid;
@@ -84,6 +85,6 @@
   top: 40px;
   z-index: 1;
 }
-.options-dropDown.visible{
+.options-dropDown.visible {
   display: inline;
 }

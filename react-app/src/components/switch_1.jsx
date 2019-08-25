@@ -33,7 +33,7 @@ class Switch_1 extends Component {
       <div className="device-container">
         <div className="device-header">
           <div className="device-name">{device.name}</div>
-          <OptionsDropDown deviceTypes={this.props.deviceTypes} device={device} />
+          <OptionsDropDown onEvent={this.props.onEvent} deviceTypes={this.props.deviceTypes} device={device} />
         </div>
 
         <button onClick={this.onClick} className={buttonClass}>
