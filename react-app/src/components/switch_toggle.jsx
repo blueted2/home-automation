@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import OptionsDropDown from "./options_dropDown";
+import Slider from "./slider_switch";
 
 class Switch_Toggle extends Component {
   onClick = () => {
+    
     const { device } = this.props;
     if (device.connected) {
       if (device.status === "on") {
@@ -36,9 +38,7 @@ class Switch_Toggle extends Component {
           <OptionsDropDown onEvent={this.props.onEvent} deviceTypes={this.props.deviceTypes} device={device} />
         </div>
 
-        <button onClick={this.onClick} className={buttonClass}>
-          <div className="button-text">{buttonText}</div>
-        </button>
+        <Slider onClick={this.onClick} device={this.props.device} />
       </div>
     );
   }

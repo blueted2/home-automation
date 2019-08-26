@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import settings from "../resources/settings.svg";
 import observableDiff from "deep-diff";
+import "../styles/options_dropDown.css"
 
 class OptionsDropDown extends Component {
   state = {
