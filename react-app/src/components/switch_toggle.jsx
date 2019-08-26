@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import OptionsDropDown from "./options/options_dropDown";
+import OptionsDropDown from "./options_dropDown";
 
-class Switch_1 extends Component {
+class Switch_Toggle extends Component {
   onClick = () => {
     const { device } = this.props;
     if (device.connected) {
@@ -44,4 +44,4 @@ class Switch_1 extends Component {
   }
 }
 
-export default Switch_1;
+export default Switch_Toggle;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import settings from "../../resources/settings.svg";
-import observableDiff, { applyChange } from "deep-diff";
+import settings from "../resources/settings.svg";
+import observableDiff from "deep-diff";
 
 class OptionsDropDown extends Component {
   state = {
@@ -24,7 +24,6 @@ class OptionsDropDown extends Component {
       }
     });
     changes.deviceId = this.props.device.deviceId;
-    console.log(changes);
     this.props.onEvent("configChange", changes);
   };
   onButtonClick = () => {
@@ -37,7 +36,10 @@ class OptionsDropDown extends Component {
     const deviceTypes = this.props.deviceTypes.map(type => {
       return (
         <option value={type} key={type}>
-          {type}
+          {type.replace(/_{1,}/g, " ").replace(/(\s{1,}|\b)(\w)/g, function(m, space, letter) {
+            //Humanize
+            return space + letter.toUpperCase();
+          })}
         </option>
       );
     });
