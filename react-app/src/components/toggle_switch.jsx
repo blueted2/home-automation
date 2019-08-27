@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import OptionsDropDown from "./options_dropDown";
+import OptionsDropDown from "./configuration/options_dropDown";
 import Slider from "./slider_switch";
 
-class Switch_Toggle extends Component {
+class Toggle_Switch extends Component {
   onClick = () => {
     
     const { device } = this.props;
@@ -21,16 +21,6 @@ class Switch_Toggle extends Component {
 
   render() {
     const { device } = this.props;
-    const buttonText = device.status.charAt(0).toUpperCase() + device.status.slice(1);
-    var buttonClass = "full-button ";
-    if (!device.connected) {
-      buttonClass += "disabled ";
-    } else {
-      if (device.status === "on") {
-        buttonClass += "active ";
-      }
-    }
-
     return (
       <div className="device-container">
         <div className="device-header">
@@ -44,4 +34,4 @@ class Switch_Toggle extends Component {
   }
 }
 
-export default Switch_Toggle;
+export default Toggle_Switch;

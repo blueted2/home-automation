@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import OptionsDropDown from "./options_dropDown";
+import OptionsDropDown from "./configuration/options_dropDown";
 
 
-class Swtich_Press extends Component {
+class Button extends Component {
   onClick = () => {
     const { device } = this.props;
     if (device.connected) {
@@ -84,4 +84,4 @@ class Swtich_Press extends Component {
   }
 }
 
-export default Swtich_Press;
+export default Button;

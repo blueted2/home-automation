@@ -1,1 +1,1 @@
-module.exports = ["switch_toggle", "switch_press"];
+module.exports = ["toggle_switch", "button"];

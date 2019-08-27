@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import Switch_Toggle from "../components/switch_toggle";
-import Switch_Press from "../components/switch_press";
-var deviceTags = { switch_toggle: Switch_Toggle, switch_press: Switch_Press };
+import Toggle_Switch from "../components/toggle_switch";
+import Button from "../components/button";
+var deviceTags = { toggle_switch: Toggle_Switch, button: Button };
+
 class devicesContainer extends Component {
   render() {
     var { devices } = this.props;
@@ -9,7 +10,7 @@ class devicesContainer extends Component {
     const switches = devices.map(device => {
       var Tag = deviceTags[device.type];
       if (!Tag) {
-        Tag = deviceTags.switch_toggle;
+        Tag = deviceTags.toggle_switch;
       }
       return <Tag deviceTypes={this.props.deviceTypes} device={device} key={device.deviceId} onEvent={this.props.onEvent} />;
     });

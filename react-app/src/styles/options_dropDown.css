@@ -16,6 +16,7 @@
   background: #ccc;
   border-style: solid solid hidden solid;
   border-color: #000;
+  z-index: 4;
 }
 .options-dropDown {
   width: 100%;
@@ -31,4 +32,23 @@
 }
 .options-dropDown.visible {
   display: inline;
+  z-index: 3;
+}
+.option-label {
+  padding: auto;
+}
+.submit {
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  background: #99f;
+}
+
+.submit:hover {
+  background: #55f;
+}
+
+.option-label {
+  padding-right: 5px;
 }

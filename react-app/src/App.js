@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Container from "./containers/devicesContainer";
 import io from "socket.io-client";
-import "./styles.css";
+import "./styles/styles.css";
 const socket = io.connect("http://molagnies.hd.free.fr:4000");
 
 class App extends Component {
