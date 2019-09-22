@@ -3,7 +3,11 @@ const emitStatusChange = require("./emitStatusChange");
 
 onStatusChange = socket => {
   socket.on("statusChange", device => {
-    storage.updateDevice(device.deviceId, { status: device.status });
+    storage.updateDevice({ deviceId: device.deviceId, status: device.status });
+    emitStatusChange({
+      deviceId: deviceId,
+      status: newDevice.status
+    });
   });
 };
 
