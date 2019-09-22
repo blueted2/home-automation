@@ -1,0 +1,54 @@
+.options-button {
+  position: absolute;
+  bottom: 0px;
+  right: 10px;
+  height: 41px;
+  width: 40px;
+  padding: 3px;
+  padding-bottom: 13px;
+  top: 0;
+  z-index: 2;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0);
+}
+.options-button.active {
+  background: #ccc;
+  border-style: solid solid hidden solid;
+  border-color: #000;
+  z-index: 4;
+}
+.options-dropDown {
+  width: 100%;
+  display: none;
+  background: #ccc;
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px;
+  position: absolute;
+  right: 0px;
+  top: 40px;
+  z-index: 1;
+}
+.options-dropDown.visible {
+  display: inline;
+  z-index: 3;
+}
+.option-label {
+  padding: auto;
+}
+.submit {
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  background: #99f;
+}
+
+.submit:hover {
+  background: #55f;
+}
+
+.option-label {
+  padding-right: 5px;
+}

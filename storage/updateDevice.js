@@ -20,6 +20,8 @@ updateDevice = newDevice => {
           .then(devices => {
             devices[devices.findIndex(d => d.deviceId === deviceId)] = updatedDevice;
             storage.setItem("devices", devices);
+            var device = newDevice;
+            newDevice.deviceId = deviceId;
 
             // if (newDevice.status) {
             //   ioHandler.emitStatusChange({

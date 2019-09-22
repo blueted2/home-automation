@@ -10,5 +10,6 @@ function startSocketServer(server) {
 module.exports = {
   startSocketServer: startSocketServer,
   statusUpdate: require("./emitStatusChange"),
-  emitStatusChange: emitStatusChange
+  emitStatusChange: emitStatusChange,
+  emitConfigChange: require("./emitConfigChange")
 };
