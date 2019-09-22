@@ -3,10 +3,10 @@ const getDevices = require("./getDevices.js");
 const storage = require("node-persist");
 const merge = require("lodash.merge");
 
-updateDevice = (deviceId, newDevice) => {
-  const ioHandler = require("../ioHandler");
+updateDevice = newDevice => {
+  // const ioHandler = require("../ioHandler");
   return new Promise((resolve, reject) => {
-    getDevice(deviceId)
+    getDevice(newDevice.deviceId)
       .then(oldDevice => {
         const updatedDevice = merge(oldDevice, newDevice);
         const validationError = validateDevice(updatedDevice);
@@ -21,12 +21,12 @@ updateDevice = (deviceId, newDevice) => {
             devices[devices.findIndex(d => d.deviceId === deviceId)] = updatedDevice;
             storage.setItem("devices", devices);
 
-            if (newDevice.status) {
-              ioHandler.emitStatusChange({
-                deviceId: deviceId,
-                status: newDevice.status
-              });
-            }
+            // if (newDevice.status) {
+            //   ioHandler.emitStatusChange({
+            //     deviceId: deviceId,
+            //     status: newDevice.status
+            //   });
+            // }
 
             resolve(updatedDevice);
           })

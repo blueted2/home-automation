@@ -123,11 +123,11 @@ void setup() {
   while(WiFiMulti.run() != WL_CONNECTED){delay(100);}
 
   webSocket.begin("molagnies.hd.free.fr", 4000);
-  webSocket.on("onConnect", emitControllerConnect);
-  webSocket.on("onControllerDisconnect", onControllerDisconnect);
-  webSocket.on("onInitialize", onInitialize);
-  webSocket.on("onSwitchOn", onSwitchOn);
-  webSocket.on("onSwitchOn", onSwitchOff);
+  webSocket.on("connect", emitControllerConnect);
+  webSocket.on("controllerDisconnect", onControllerDisconnect);
+  webSocket.on("initialize", onInitialize);
+  webSocket.on("switchOn", onSwitchOn);
+  webSocket.on("switchOff", onSwitchOff);
 
   timeClient.begin();
   attachInterrupt(digitalPinToInterrupt(buttonPin), ISRoutine, FALLING);
